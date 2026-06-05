@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Job Match Tracker",
+  "version": "1.0.0",
+  "description": "Track and score job postings against your saved resumes. Compatible with Upwork, LinkedIn, and Indeed.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.upwork.com/*",
+    "https://*.linkedin.com/*",
+    "https://*.indeed.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Job Match Tracker"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.upwork.com/*",
+        "https://*.linkedin.com/*",
+        "https://*.indeed.com/*"
+      ],
+      "js": ["content/extract-job.js"],
+      "css": [],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+J",
+        "mac": "Command+Shift+J"
+      },
+      "description": "Toggle job match sidebar"
+    }
+  }
+}

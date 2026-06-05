@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Match Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <div class="logo">
+        <img src="../icons/icon-48.png" alt="Job Match Tracker Logo" width="24" height="24">
+        <h1>Job Match Tracker</h1>
+      </div>
+      <button id="settings-btn" class="icon-btn" aria-label="Settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main class="popup-content">
+      <!-- Auth Section -->
+      <section id="auth-section" class="section">
+        <div id="login-form" class="form-group">
+          <h2>Sign In</h2>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+          </div>
+          <button id="login-btn" class="btn btn-primary">Sign In</button>
+          <p class="text-center">
+            Don't have an account? <a href="#" id="show-register">Register</a>
+          </p>
+        </div>
+        <div id="register-form" class="form-group hidden">
+          <h2>Create Account</h2>
+          <div class="input-group">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" placeholder="your@email.com" autocomplete="email">
+          </div>
+          <div class="input-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" placeholder="Min 8 characters" autocomplete="new-password">
+          </div>
+          <div class="input-group">
+            <label for="reg-confirm">Confirm Password</label>
+            <input type="password" id="reg-confirm" placeholder="Repeat password" autocomplete="new-password">
+          </div>
+          <button id="register-btn" class="btn btn-primary">Create Account</button>
+          <p class="text-center">
+            Already have an account? <a href="#" id="show-login">Sign In</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- User Info Section (shown when logged in) -->
+      <section id="user-section" class="section hidden">
+        <div class="user-info">
+          <div class="user-avatar">
+            <span id="user-initial">U</span>
+          </div>
+          <div class="user-details">
+            <span id="user-email">user@example.com</span>
+            <span id="user-plan">Free Plan</span>
+          </div>
+          <button id="logout-btn" class="btn btn-secondary btn-sm">Sign Out</button>
+        </div>
+      </section>
+
+      <!-- Job Detection Section -->
+      <section id="job-section" class="section hidden">
+        <div id="no-job-detected" class="empty-state">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <p>Navigate to a job posting on Upwork, LinkedIn, or Indeed to see match scores.</p>
+        </div>
+
+        <div id="job-detected" class="hidden">
+          <div class="job-card">
+            <div class="job-source">
+              <span id="job-source-badge">LinkedIn</span>
+              <span id="job-detected-at" class="timestamp">Just now</span>
+            </div>
+            <h2 id="job-title" class="job-title">Job Title</h2>
+            <p id="job-company" class="job-company">Company Name</p>
+            <div id="job-description" class="job-description">
+              <p>Job description preview will appear here...</p>
+            </div>
+          </div>
+
+          <!-- Match Score Section -->
+          <div class="match-section">
+            <h3>Match Score</h3>
+            <div class="match-score-container">
+              <div class="score-circle">
+                <svg class="score-ring" viewBox="0 0 100 100">
+                  <circle class="score-bg" cx="50" cy="50" r="45"></circle>
+                  <circle id="score-progress" class="score-progress" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="score-value">
+                  <span id="score-number">0</span>
+                  <span class="score-unit">%</span>
+                </div>
+              </div>
+              <div class="score-breakdown">
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Skills Match</span>
+                  <div class="breakdown-bar">
+                    <div id="skills-bar" class="breakdown-fill" style="width: 0%"></div>
+                  </div>
+                  <span id="skills-score" class="breakdown-value">0%</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Experience</span>
+                  <div class="breakdown-bar">
+                    <div id="experience-bar" class="breakdown-fill" style="width: 0%"></div>
+                  </div>
+                  <span id="experience-score" class="breakdown-value">0%</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Keywords</span>
+                  <div class="breakdown-bar">
+                    <div id="keywords-bar" class="breakdown-fill" style="width: 0%"></div>
+                  </div>
+                  <span id="keywords-score" class="breakdown-value">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resume Selection -->
+          <div class="resume-section">
+            <h3>Select Resume</h3>
+            <div id="resume-list" class="resume-list">
+              <div class="resume-loading">
+                <div class="spinner"></div>
+                <span>Loading resumes...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button id="rescore-btn" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              Rescore
+            </button>
+            <button id="apply-btn" class="btn btn-primary" disabled>
+              Apply with this Resume
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading State -->
+      <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner large"></div>
+        <p>Analyzing job posting...</p>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-message" class="error-message hidden">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span id="error-text">An error occurred</span>
+        <button id="dismiss-error" class="icon-btn">×</button>
+      </div>
+    </main>
+
+    <footer class="popup-footer">
+      <a href="#" id="open-dashboard">Open Dashboard</a>
+      <span class="version">v1.0.0</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
