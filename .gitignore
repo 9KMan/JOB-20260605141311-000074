@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+
+# Local virtualenvs
+venv/
+.venv/
+env/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Local secrets
+.env
+.env.local
+
+# OS
+Thumbs.db
