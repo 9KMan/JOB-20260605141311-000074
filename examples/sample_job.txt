@@ -1,0 +1,29 @@
+Senior Backend Engineer
+
+We are looking for a Senior Backend Engineer with strong experience in:
+
+Requirements:
+- Python (5+ years)
+- PostgreSQL
+- AWS (EC2, Lambda, S3)
+- Docker / Kubernetes
+- REST API design
+- FastAPI or Django
+
+Nice to have:
+- Terraform
+- CI/CD pipelines
+- Redis
+- GraphQL
+
+Responsibilities:
+- Design and ship production-grade APIs serving millions of users
+- Own database schema and performance
+- Mentor junior engineers
+- Participate in on-call rotation (1 week per quarter)
+
+We offer:
+- Competitive salary ($150K-200K + equity)
+- Remote-first team
+- Unlimited PTO
+- Annual conference budget

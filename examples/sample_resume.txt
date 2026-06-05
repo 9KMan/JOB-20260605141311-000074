@@ -1,0 +1,42 @@
+John Doe
+john.doe@example.com | +1-555-123-4567 | linkedin.com/in/johndoe
+
+Summary
+Senior Backend Engineer with 8 years of experience building scalable
+web applications and APIs. Expert in Python, PostgreSQL, AWS, Docker,
+and REST API design. Passionate about clean code, observability, and
+shipping reliable systems.
+
+Experience
+
+Senior Engineer | Acme Corp
+2020 - Present
+- Built a real-time analytics platform serving 10M requests/day, processing
+  50TB of data with sub-second query latency.
+- Led migration from MySQL to PostgreSQL, reducing query time by 60% and
+  cutting infrastructure costs by $200K/year.
+- Designed and shipped a Python/FastAPI service for ML inference, handling
+  500 req/s with 99.9% uptime.
+- Mentored 4 junior engineers; ran weekly code review and architecture sessions.
+
+Engineer | Beta Inc
+2017 - 2020
+- Designed and shipped REST APIs for mobile clients serving 500K MAU.
+- Built CI/CD pipelines (GitHub Actions, Docker, Kubernetes) that reduced
+  deployment time from 30 min to 4 min.
+- Owned the PostgreSQL schema for 12 microservices, with zero data loss
+  across 18 months.
+
+Education
+BS Computer Science | MIT | 2017
+GPA: 3.8/4.0
+
+Skills
+Python, FastAPI, PostgreSQL, MySQL, AWS (EC2, S3, Lambda), Docker, Kubernetes,
+Terraform, Redis, REST API, GraphQL, Git, CI/CD, pytest, SQLAlchemy
+
+Certifications
+AWS Certified Solutions Architect (Associate) | 2022
+
+Languages
+English (native), Thai (conversational)
