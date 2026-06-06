@@ -222,5 +222,5 @@ MIT — see LICENSE.
 
 ---
 
-**Built by:** KMan (Mongkolpoj Phanutaecha) | AI-Augmented Engineering Factory
+**Built by:** KMan | AI-Augmented Engineering Factory
 
